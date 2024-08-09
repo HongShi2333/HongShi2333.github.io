@@ -201,13 +201,6 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/tags/%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2024-08-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://hongshi2333.114514.team/tags/%E6%BF%80%E6%B4%BB/</loc>
     <lastmod>2024-08-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -216,6 +209,13 @@
   
   <url>
     <loc>http://hongshi2333.114514.team/tags/%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2024-08-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hongshi2333.114514.team/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2024-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

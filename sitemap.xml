@@ -2,7 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hongshi2333.114514.team/ip/vendor/ua-parser/uap-php/composer.json</loc>
+    <loc>http://blog.hongshi.qzz.io/post/28980.html</loc>
+    
+    <lastmod>2025-09-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/old/9%E6%9C%8816%E6%97%A5NewBing%E9%95%9C%E5%83%8F%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.html</loc>
+    
+    <lastmod>2025-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/old/NewBing%E9%95%9C%E5%83%8F%E7%AB%99%E9%83%A8%E7%BD%B2.html</loc>
+    
+    <lastmod>2025-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/old/%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6-2023%E5%B9%B4%E7%89%88.html</loc>
+    
+    <lastmod>2025-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/old/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2.html</loc>
+    
+    <lastmod>2025-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/old/JetBrains%E5%85%8D%E8%B4%B9%E8%AE%B8%E5%8F%AF%E8%AF%81.html</loc>
+    
+    <lastmod>2025-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/old/%E5%B0%86Coze%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%83%A8%E7%BD%B2%E8%87%B3Discord%E6%9C%8D%E5%8A%A1%E5%99%A8.html</loc>
+    
+    <lastmod>2025-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/ip/vendor/ua-parser/uap-php/composer.json</loc>
     
     <lastmod>2024-10-04</lastmod>
     
@@ -11,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/ip/vendor/ua-parser/uap-php/README.html</loc>
+    <loc>http://blog.hongshi.qzz.io/ip/vendor/ua-parser/uap-php/README.html</loc>
     
     <lastmod>2024-10-04</lastmod>
     
@@ -20,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/ip/vendor/ua-parser/uap-php/CHANGELOG.html</loc>
+    <loc>http://blog.hongshi.qzz.io/ip/vendor/ua-parser/uap-php/CHANGELOG.html</loc>
     
     <lastmod>2024-10-04</lastmod>
     
@@ -29,7 +92,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/ip/vendor/composer/installed.json</loc>
+    <loc>http://blog.hongshi.qzz.io/ip/vendor/composer/installed.json</loc>
     
     <lastmod>2024-10-04</lastmod>
     
@@ -38,7 +101,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/ip/vendor/composer/ca-bundle/composer.json</loc>
+    <loc>http://blog.hongshi.qzz.io/ip/vendor/composer/ca-bundle/composer.json</loc>
     
     <lastmod>2024-10-04</lastmod>
     
@@ -47,7 +110,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/ip/vendor/composer/ca-bundle/README.html</loc>
+    <loc>http://blog.hongshi.qzz.io/ip/vendor/composer/ca-bundle/README.html</loc>
     
     <lastmod>2024-10-04</lastmod>
     
@@ -56,7 +119,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/ip/composer.json</loc>
+    <loc>http://blog.hongshi.qzz.io/ip/composer.json</loc>
     
     <lastmod>2024-10-04</lastmod>
     
@@ -65,7 +128,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/json/music.json</loc>
+    <loc>http://blog.hongshi.qzz.io/json/music.json</loc>
     
     <lastmod>2024-08-30</lastmod>
     
@@ -74,7 +137,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/about/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/about/index.html</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -83,7 +146,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/terms_for_usage/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/terms_for_usage/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -92,7 +155,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/tags/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/tags/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -101,7 +164,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/sth_err/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/sth_err/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -110,7 +173,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/q_and_a/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/q_and_a/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -119,7 +182,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/proxy/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/proxy/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -128,7 +191,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/music/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/music/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -137,7 +200,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/link/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/link/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -146,7 +209,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/essay/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/essay/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -155,7 +218,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/categories/index.html</loc>
+    <loc>http://blog.hongshi.qzz.io/categories/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -164,61 +227,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi2333.114514.team/air-conditioner/index.html</loc>
-    
-    <lastmod>2024-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/post/33825.html</loc>
-    
-    <lastmod>2024-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/post/36809.html</loc>
-    
-    <lastmod>2024-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/post/14780.html</loc>
-    
-    <lastmod>2024-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/post/36894.html</loc>
-    
-    <lastmod>2024-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/post/59887.html</loc>
-    
-    <lastmod>2024-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/post/43128.html</loc>
+    <loc>http://blog.hongshi.qzz.io/air-conditioner/index.html</loc>
     
     <lastmod>2024-08-19</lastmod>
     
@@ -228,61 +237,12 @@
   
 
   <url>
-    <loc>http://hongshi2333.114514.team/</loc>
-    <lastmod>2024-11-02</lastmod>
+    <loc>http://blog.hongshi.qzz.io/</loc>
+    <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/tags/%E7%BD%91%E7%AB%99/</loc>
-    <lastmod>2024-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/tags/%E7%A7%91%E6%8A%80/</loc>
-    <lastmod>2024-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2024-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/tags/%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2024-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/tags/%E6%BF%80%E6%B4%BB/</loc>
-    <lastmod>2024-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/tags/%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2024-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi2333.114514.team/tags/%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2024-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
 
   

@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.hongshi.qzz.io/post/28980.html</loc>
-    
-    <lastmod>2025-09-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.hongshi.qzz.io/old/9%E6%9C%8816%E6%97%A5NewBing%E9%95%9C%E5%83%8F%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.html</loc>
     
     <lastmod>2025-09-06</lastmod>
@@ -59,6 +50,33 @@
     <loc>http://blog.hongshi.qzz.io/old/%E5%B0%86Coze%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%83%A8%E7%BD%B2%E8%87%B3Discord%E6%9C%8D%E5%8A%A1%E5%99%A8.html</loc>
     
     <lastmod>2025-09-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/post/62072.html</loc>
+    
+    <lastmod>2025-08-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/post/45382.html</loc>
+    
+    <lastmod>2025-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/post/26312.html</loc>
+    
+    <lastmod>2025-04-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -238,12 +256,47 @@
 
   <url>
     <loc>http://blog.hongshi.qzz.io/</loc>
-    <lastmod>2025-09-07</lastmod>
+    <lastmod>2025-09-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
+  <url>
+    <loc>http://blog.hongshi.qzz.io/tags/AI/</loc>
+    <lastmod>2025-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/tags/%E9%80%86%E5%90%91/</loc>
+    <lastmod>2025-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/tags/Huggingface/</loc>
+    <lastmod>2025-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/tags/%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>http://blog.hongshi.qzz.io/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>

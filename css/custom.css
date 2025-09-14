@@ -1,0 +1,13 @@
+/* 白天模式的背景图片 */
+#web_bg {
+  background-image: url('/images/upload/d-background7.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* 夜晚模式的背景图片 */
+[data-theme=dark] #web_bg {
+  background-image: url('/images/upload/d-background8.jpg');
+  background-size: cover;
+  background-position: center;
+}

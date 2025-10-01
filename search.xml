@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Dolphin逆向思路+过程</title>
+      <link href="//post/42496.html"/>
+      <url>//post/42496.html</url>
+      
+        <content type="html"><![CDATA[<p>十一到处逛，在L站发现了个帖子<a href="https://linux.do/t/topic/1002906">发现一个AI（可免费使用） - 开发调优 - LINUX DO</a>我注意到有些站点并没有严格的鉴权限制，甚至允许未登录的用户直接调用模型接口。这类接口往往隐藏在浏览器的网络请求中，通过分析可以实现标准化调用，从而兼容 OpenAI 的 API 生态。下面记录一下我对 <strong>Dolphin 模型接口</strong> 的逆向过程与思路。</p><h4 id="初步分析"><a href="#初步分析" class="headerlink" title="初步分析"></a>初步分析</h4><p>目标网站提供了一个在线对话页面，前端直接与模型服务交互：</p><ul><li>请求地址：<code>https://chat.dphn.ai/api/chat</code></li><li>请求方法：<code>POST</code></li><li>返回格式：<code>text/event-stream</code>（SSE 流式返回）</li></ul><p>这里的关键点是 <strong>数据并不是普通 JSON，而是通过 SSE 逐条传输</strong>，这意味着需要模拟流式读取。</p><h4 id="观察请求参数"><a href="#观察请求参数" class="headerlink" title="观察请求参数"></a>观察请求参数</h4><p>通过浏览器开发者工具（Network 面板），我们可以看到完整的请求：</p><ul><li><code>Content-Type: application/json</code></li><li><code>Accept: text/event-stream</code></li><li>请求体包含：<ul><li><code>messages</code>（聊天上下文，符合 OpenAI 格式）</li><li><code>model</code>（例如 <code>dolphinpod:24B</code>）</li><li><code>template</code>（推理模式，如 <code>&quot;logical&quot;</code>）</li></ul></li></ul><blockquote><p>📌 这一步确认了接口 <strong>几乎与 OpenAI Chat API 一致</strong>，只是多了一个 <code>template</code> 字段。</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;messages&quot;: [</span><br><span class="line">    &#123;&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你是谁？&quot;&#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;model&quot;: &quot;dolphinpod:24B&quot;,</span><br><span class="line">  &quot;template&quot;: &quot;logical&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="处理-SSE-流式返回"><a href="#处理-SSE-流式返回" class="headerlink" title="处理 SSE 流式返回"></a>处理 SSE 流式返回</h4><p>返回的数据不是一次性 JSON，而是 <strong>逐行推送的 SSE</strong>。每一行类似</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;&quot;choices&quot;:[&#123;&quot;delta&quot;:&#123;&quot;content&quot;:&quot;你好&quot;&#125;&#125;]&#125;</span><br></pre></td></tr></table></figure><p>需要在客户端逐行解析，提取 <code>delta.content</code> 并拼接成最终结果。<br>这与 OpenAI <code>stream=True</code> 的机制完全一致。</p><h4 id="构建代理层思路"><a href="#构建代理层思路" class="headerlink" title="构建代理层思路"></a>构建代理层思路</h4><p>由于原始接口并没有统一的 API Key 验证机制，如果想要对外安全暴露，需要自己加一层 <strong>代理服务</strong>：</p><ol><li><strong>转发请求</strong>：<ul><li>外部调用 <code>/v1/chat/completions</code></li><li>代理服务转发到 <code>https://chat.dphn.ai/api/chat</code></li></ul></li><li><strong>兼容 OpenAI 格式</strong>：<ul><li>输入&#x2F;输出保持与 OpenAI SDK 一致</li><li>方便用户直接用 <code>openai.ChatCompletion.create()</code> 调用</li></ul></li><li><strong>自定义鉴权</strong>：<ul><li>在代理层添加 API Key 校验</li><li>保证只有授权用户可以访问</li></ul></li></ol><h4 id="关键难点与解决思路"><a href="#关键难点与解决思路" class="headerlink" title="关键难点与解决思路"></a>关键难点与解决思路</h4><ul><li><strong>SSE 转发</strong><ul><li>不能直接 <code>resp.json()</code>，必须逐行解析</li><li>需要在服务端用 <code>StreamingResponse</code>（Python）或 <code>ReadableStream</code>（Deno）转发</li></ul></li><li><strong>浏览器伪装</strong><ul><li>有些站点可能检查 <code>Origin</code> 和 <code>Referer</code></li><li>需要在请求头中补全这两个字段</li></ul></li><li><strong>模型列表</strong><ul><li>原站点没有 <code>/v1/models</code> 接口</li><li>可以在代理层手动定义可用模型（如 <code>dolphinpod:24B</code>）</li></ul></li></ul><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>整个逆向过程的关键是：</p><ol><li><strong>观察请求</strong> → 确认接口是 <code>/api/chat</code>，参数与 OpenAI 格式类似</li><li><strong>理解响应</strong> → 识别是 SSE 流式输出，逐行解析</li><li><strong>设计代理</strong> → 实现 <code>/v1/chat/completions</code> 与 <code>/v1/models</code>，加上 API Key 保护</li><li><strong>统一调用</strong> → 让外部可以直接用 OpenAI SDK 访问 Dolphin 模型</li></ol><p>通过这种方式，任何支持 OpenAI API 的工具（如 LangChain、ChatUI）都可以无缝切换到 Dolphin 模型。</p><p>行了，完事儿了</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> 逆向 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Deepinfra逆向思路+过程</title>
       <link href="//post/62072.html"/>
       <url>//post/62072.html</url>

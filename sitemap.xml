@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hongshi.qzz.io/link/index.html</loc>
+    <loc>http://hongshi.qzz.io/post/42496.html</loc>
     
-    <lastmod>2025-09-20</lastmod>
+    <lastmod>2025-10-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/googlea01859ba12e6608a.html</loc>
+    <loc>http://hongshi.qzz.io/link/index.html</loc>
     
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-10-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -272,20 +272,6 @@
 
   
   <url>
-    <loc>http://hongshi.qzz.io/tags/%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2025-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi.qzz.io/tags/Windows/</loc>
-    <lastmod>2025-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://hongshi.qzz.io/tags/AI/</loc>
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -294,6 +280,20 @@
   
   <url>
     <loc>http://hongshi.qzz.io/tags/%E9%80%86%E5%90%91/</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hongshi.qzz.io/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hongshi.qzz.io/tags/Windows/</loc>
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

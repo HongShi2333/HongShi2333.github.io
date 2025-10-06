@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Venice逆向思路+过程</title>
+      <link href="//post/56354.html"/>
+      <url>//post/56354.html</url>
+      
+        <content type="html"><![CDATA[<p>今天下午看了看，之前的dolphin对话似乎已经似了，不太甘心，就继续上网扒拉，找到一个看着<a href="https://venice.ai/">挺靠谱的站</a>（他们家收录的dolphin的模型）而且我一看，你似乎也没有道德审查啊，那很好了，直接开逆。</p><h3 id="思路整理"><a href="#思路整理" class="headerlink" title="思路整理"></a>思路整理</h3><p>1.我打算用deno写，毕竟那玩意好写（）<br>2.转发请求到venice，并且返回结果搞成OpenAI标准格式，并且支持流式响应<br>3.增加一个API KEY，别是个东西就能刷</p><h3 id="开写！"><a href="#开写！" class="headerlink" title="开写！"></a>开写！</h3><h4 id="API鉴权"><a href="#API鉴权" class="headerlink" title="API鉴权"></a>API鉴权</h4><p>首先搞定API鉴权，这没啥好说的，在请求头中检查 Authorization 字段，要求格式为 Bearer key，缺失或者不对直接一个401糊脸。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">validateApiKey</span>(<span class="params">req: Request</span>): <span class="built_in">boolean</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> authHeader = req.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&quot;Authorization&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!authHeader) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">const</span> match = authHeader.<span class="title function_">match</span>(<span class="regexp">/^Bearer\s+(.+)$/</span>);</span><br><span class="line">  <span class="keyword">if</span> (!match) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> match[<span class="number">1</span>] === <span class="variable constant_">API_KEY</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="模型列表接口"><a href="#模型列表接口" class="headerlink" title="模型列表接口"></a>模型列表接口</h4><p>然后又到了喜闻乐见的&#x2F;v1&#x2F;models环节，目前这个站只有俩模型，就直接写死在代码里了，后面改再加（）还是喜闻乐见的OpenAI格式。返回一个固定的 JSON，列出可用模型。包含id、object、created等字段。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">openaiModels</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">object</span>: <span class="string">&quot;list&quot;</span>,</span><br><span class="line">    <span class="attr">data</span>: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="string">&quot;dolphin-3.0-mistral-24b-1dot1&quot;</span>, <span class="attr">object</span>: <span class="string">&quot;model&quot;</span>, ... &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="string">&quot;mistral-31-24b&quot;</span>, <span class="attr">object</span>: <span class="string">&quot;model&quot;</span>, ... &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="chat接口"><a href="#chat接口" class="headerlink" title="chat接口"></a>chat接口</h4><p>接下来是重中之重，聊天接口：&#x2F;v1&#x2F;chat&#x2F;completions<br>需求：接收用户传入的 messages、model、temperature 等参数。转换为 Venice.ai 的请求格式（prompt、modelId 等）。发起请求并获取响应。<br>这个有两种模式：流式和非流</p><p>非流式：一次性拼接所有返回内容，组装成 OpenAI 的 chat.completion 格式。</p><p>流式：逐行读取 Venice.ai 的输出，每行 JSON 解析后立即转发为 SSE 格式的 data: {…}，模拟 OpenAI 的流式输出。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (stream) &#123;</span><br><span class="line">  <span class="comment">// 读取 Venice.ai 的响应流</span></span><br><span class="line">  <span class="comment">// 每解析到一行 JSON，就转成 OpenAI 的 chunk 格式推送</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 收集所有行，拼接成完整回答</span></span><br><span class="line">  <span class="comment">// 返回标准的 chat.completion JSON</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后直接启动服务，声明一下路径就行了。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">serve</span>(<span class="keyword">async</span> (<span class="attr">req</span>: <span class="title class_">Request</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(req.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> === <span class="string">&quot;/v1/models&quot;</span>) &#123; ... &#125;</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> === <span class="string">&quot;/v1/chat/completions&quot;</span>) &#123; ... &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">&quot;Not Found&quot;</span>, &#123; <span class="attr">status</span>: <span class="number">404</span> &#125;);</span><br><span class="line">&#125;, &#123; <span class="attr">port</span>: <span class="number">8000</span> &#125;);</span><br></pre></td></tr></table></figure><p>大功告成！接下来愉快地去刷你的API去吧！</p><p>完整代码前往<a href="https://linux.do/t/topic/1013607">Venice2api逆向思路(附代码)（这个模型没有道德审查哦~） - 开发调优 &#x2F; 开发调优, Lv2 - LINUX DO</a>获取</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+          <category> 逆向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> 逆向 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大善人发力，无限worker</title>
       <link href="//post/21570.html"/>
       <url>//post/21570.html</url>
@@ -162,18 +191,18 @@
       
       <categories>
           
-          <category> Huggingface </category>
-          
           <category> 部署 </category>
+          
+          <category> Huggingface </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Huggingface </tag>
-            
             <tag> 部署 </tag>
+            
+            <tag> Huggingface </tag>
             
         </tags>
       

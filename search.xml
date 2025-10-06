@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>大善人发力，无限worker</title>
+      <link href="//post/21570.html"/>
+      <url>//post/21570.html</url>
+      
+        <content type="html"><![CDATA[<p>我们亲爱的赛博大善人近几天又带来了新的服务：Snippets，让我们简单了解一下</p><h3 id="这是啥？"><a href="#这是啥？" class="headerlink" title="这是啥？"></a>这是啥？</h3><p>这个玩意官方的定义是：<strong>短而强大的 JavaScript 片段，可动态定制您的网站或应用程序。</strong><a href="https://developers.cloudflare.com/rules/snippets/">官方文档</a><br>简而言之，就是一个不限每日调用次数的js片段，也就是大善人提供的worker服务。</p><h3 id="怎么用？"><a href="#怎么用？" class="headerlink" title="怎么用？"></a>怎么用？</h3><p>首先，你需要在大善人那里托管一个域名，并且域名处于活跃状态，然后我们需要前往域名详情→规则→Snippets。如果你用的是一些免费域名（<a href="http://如qzz.io/">如qzz.io</a>、dpdns.org等）是需要绑定信用卡的，但是如果你是付费域&#x2F;特殊免费域（<a href="http://如ggff.net/">如ggff.net</a>）就可以直接进入详情页了。<br>进入详情页后，就可以新建代码片段，托管你的代码了。<br>注意，这里与worker的步骤稍有不同，默认情况下snippets是不会给你分配域名的，所以必须绑定自定义域，其实在你点击部署的时候就会弹出一个<strong>自定义筛选表达式</strong>的框，我这里建议是这样填写（我是一个纯纯的小白，这个方法可能很白痴，各位大佬请轻喷）主机名 等于 [你想要的前缀].[你的域名]。点击完成后大概率会有一个窗口，告诉你<strong>此规则可能不适用于你的流量</strong>，这个时候可以直接选择<strong>创建代理DNS记录</strong>，记录类型为A，名称不用管，IPV4地址填写下面给出的放弃请求的地址（大部分为192.0.2.1）点一下保存记录就行了（tips：这个记录基本上是立即生效的哦）</p><h3 id="那么，缺点是什么呢？"><a href="#那么，缺点是什么呢？" class="headerlink" title="那么，缺点是什么呢？"></a>那么，缺点是什么呢？</h3><p>第一，这个服务并不面向所有域名开放，大部分免费域名都被排除在外了<br>第二，这个服务一个域名有且仅有5个snippets位置，多了不行。<br>第三，不能像worker一样方便地设置环境变量、更换部署版本，环境变量仅能写死在代码中。<br>第四，勒克莱尔（千年勒老四）</p><p>发布于[<a href="https://linux.do/t/topic/1011644">短短短文]大善人再次发力，无限worker - 开发调优 &#x2F; 开发调优, Lv1 - LINUX DO</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目 </category>
+          
+          <category> 部署 </category>
+          
+          <category> CloudFlare </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目 </tag>
+            
+            <tag> 部署 </tag>
+            
+            <tag> CloudFlare </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[折腾笔记]小狼毫输入法</title>
       <link href="//post/61849.html"/>
       <url>//post/61849.html</url>

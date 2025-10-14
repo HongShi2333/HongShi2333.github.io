@@ -75,18 +75,18 @@
       
       <categories>
           
-          <category> Windows </category>
-          
           <category> 折腾笔记 </category>
+          
+          <category> Windows </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 折腾笔记 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -171,9 +171,9 @@
       
         <tags>
             
-            <tag> 项目 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -191,18 +191,18 @@
       
       <categories>
           
-          <category> 部署 </category>
-          
           <category> Huggingface </category>
+          
+          <category> 部署 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 部署 </tag>
-            
             <tag> Huggingface </tag>
+            
+            <tag> 部署 </tag>
             
         </tags>
       

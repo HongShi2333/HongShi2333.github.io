@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>无服务器部署私人DoH</title>
+      <link href="//post/27433.html"/>
+      <url>//post/27433.html</url>
+      
+        <content type="html"><![CDATA[<p>前一阵子L站被SNI阻断了，直接不能直连了，搜了一下，发现自己搭建一个DoH是一个比较好的方案。当然github上有很多好的DoH项目，但是这些项目基本上都需要服务器，并且配置比较复杂。于是，这个项目诞生了，一个可以通过Netlify、vercel、huggingface部署的Doh项目。</p><h3 id="什么是DoH"><a href="#什么是DoH" class="headerlink" title="什么是DoH"></a>什么是DoH</h3><p>DNS over HTTPS (DoH) 是一种通过 HTTPS 协议加密 DNS 查询和响应的技术。传统的 DNS 查询使用明文方式传输，通常通过 UDP 53 端口进行，这种方式容易受到中间人攻击、DNS 劫持等安全威胁。DoH 的主要目标是使用 HTTPS 协议来加密 DNS 查询和响应，从而保护用户的隐私和安全。它将 DNS 查询封装在 HTTPS 流量中，通过 HTTPS 协议进行传输，这样可以有效防止第三方监控用户的上网行为，保护用户的隐私。<br>关于DoH工作原理这里不详细介绍，详细信息可以参考<a href="https://www.cloudflare.com/zh-cn/learning/dns/dns-over-https/">这里</a></p><h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>项目地址：<a href="https://github.com/HongShi2333/HongShi-DoH">HongShi-DoH</a>请点个star，有什么问题请提交到issues</p><p>这是配置项：</p><table><thead><tr><th>变量名</th><th>默认值</th><th>说明</th></tr></thead><tbody><tr><td><code>DOH_PATH</code></td><td><code>dns-query</code></td><td>自定义 DoH 路径。设定后将禁用默认 <code>/dns-query</code></td></tr><tr><td><code>DOH</code></td><td><code>cloudflare-dns.com</code></td><td>上游 DoH 服务（可为 dns.google 等）</td></tr><tr><td><code>IP_ENRICH</code></td><td><code>auto</code></td><td><code>local</code> &#x2F; <code>ipwhois</code> &#x2F; <code>ipapi</code> &#x2F; <code>ipinfo</code> 自动优先使用本地数据库</td></tr><tr><td><code>IPINFO_TOKEN</code></td><td><em>(可选)</em></td><td>当 <code>IP_ENRICH=ipinfo</code> 时使用</td></tr><tr><td><code>TOKEN</code> &#x2F; <code>HSD_PATH</code></td><td><em>(可选)</em></td><td>替代路径参数（历史兼容）</td></tr></tbody></table><p>这是一些可用功能对应的地址：</p><table><thead><tr><th>功能</th><th>描述</th></tr></thead><tbody><tr><td><code>/dns-query</code></td><td>标准 DoH 接口，支持 GET &#x2F; POST &#x2F; application&#x2F;dns-message</td></tr><tr><td><code>/resolve</code></td><td>JSON 模式 DNS 查询（聚合 A &#x2F; AAAA &#x2F; NS）</td></tr><tr><td><code>/ui/</code></td><td>可视化前端界面，支持输入域名、选择 DoH、显示 JSON 与表格</td></tr><tr><td><code>/ip</code></td><td>返回请求方 IP、归属地、ASN、运营商、经纬度等信息</td></tr><tr><td><code>/host</code></td><td>显示部署平台主机名与实例信息</td></tr><tr><td><code>/meta</code></td><td>返回当前 DOH_PATH、DNS Query 启用状态</td></tr><tr><td><code>/</code></td><td>首页介绍，自动检测 &#x2F;meta</td></tr></tbody></table><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><h4 id="静态平台"><a href="#静态平台" class="headerlink" title="静态平台"></a>静态平台</h4><p>这个项目能托管到netlify、vercel、huggingface等平台，当然，你也可以部署到自己的服务器上（包括虚拟主机）<br>你只需要fork这个仓库，在vercel、Netlify绑定github账户，点击部署、等待上线就行了。<br>当然，这个项目也支持一些自定义。</p><h4 id="huggingface"><a href="#huggingface" class="headerlink" title="huggingface"></a>huggingface</h4><p>由于huggingface比较特殊，所以需要对项目做一些小的更改。<br>这里提供两个版本，一个是完整功能的，另一个是仅有dns解析功能的，大家按需下载。<br><a href="https://hongshi2333-my.sharepoint.com/:u:/g/personal/admin_ms_hongshi_qzz_io/EWJNAxwEbyxPhmgWgO95i20BONdH5us-v_RvGCN32BJqaw?e=Ishdfp">完整功能版本-OneDrive</a><br><a href="https://hongshi.qzz.io/zip/HongShi-DOH-hf.zip">完整功能版本-博客下载</a><br>完整功能版本与上述的配置方法一致<br><a href="https://hongshi2333-my.sharepoint.com/my?id=/personal/admin_ms_hongshi_qzz_io/Documents/%E9%A1%B9%E7%9B%AE/HongShi-DNS-hf.zip&parent=/personal/admin_ms_hongshi_qzz_io/Documents/%E9%A1%B9%E7%9B%AE&ga=1">仅dns解析功能版本-OneDrive</a><br><a href="https://hongshi.qzz.io/zip/HongShi-DNS-hf.zip">完整功能版本-博客下载</a><br>注，仅DNS版本的环境变量如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPSTREAM_DOH = https://dns.google/dns-query</span><br><span class="line">DOH_PATH = /my-secret-doh-123</span><br><span class="line">CACHE_TTL_SECONDS = 120</span><br></pre></td></tr></table></figure><h3 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h3><p>系统由三部分组成：</p><ol><li><p><strong>Edge Functions（核心）</strong></p><ul><li>位于 <code>netlify/edge-functions/dns.ts</code> 与 <code>vercel/app/route.ts</code>。</li><li>负责 DNS 请求解析、上游转发、以及 IP 定位。</li><li>通过 TypeScript 在 Edge 运行时执行，速度快、无冷启动。</li></ul></li><li><p><strong>静态页面（UI + 首页）</strong></p><ul><li><code>/public/ui/index.html</code> 是可交互查询界面，支持切换上游（Cloudflare、Google、自定义）。</li><li><code>/public/index.html</code> 为主页，展示服务简介与导航按钮。</li></ul></li><li><p><strong>配置文件</strong></p><ul><li><p>Netlify 使用 <code>netlify.toml</code> 注册 Edge Function；</p></li><li><p>Vercel 使用 <code>app/</code> 目录自动匹配路径。</p></li><li><p>主要环境变量：</p><ul><li><code>DOH_PATH</code>：自定义 DoH 端点路径（默认 <code>dns-query</code>，修改后 <code>/dns-query</code> 将禁用）。</li><li><code>DOH</code>：上游 DoH 服务地址，默认 <code>cloudflare-dns.com</code>。</li></ul></li></ul></li></ol><h4 id="核心运行逻辑"><a href="#核心运行逻辑" class="headerlink" title="核心运行逻辑"></a>核心运行逻辑</h4><ol><li><code>/resolve</code> 与 <code>/dns-query</code></li></ol><p>用户从 UI 发起查询时，Edge Function 会：</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = url.<span class="property">searchParams</span>.<span class="title function_">get</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">type</span> = url.<span class="property">searchParams</span>.<span class="title function_">get</span>(<span class="string">&#x27;type&#x27;</span>) || <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> doh = url.<span class="property">searchParams</span>.<span class="title function_">get</span>(<span class="string">&#x27;doh&#x27;</span>) || <span class="string">&#x27;&#x27;</span>;</span><br></pre></td></tr></table></figure><p>然后依次尝试多个上游：</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chain = <span class="title function_">urlListForHost</span>(host, name, <span class="keyword">type</span>);</span><br><span class="line"><span class="keyword">const</span> out = <span class="keyword">await</span> <span class="title function_">fetchJsonChain</span>(chain);</span><br></pre></td></tr></table></figure><p>其中 <code>urlListForHost()</code> 生成 Cloudflare &#x2F; Google &#x2F; 1.1.1.1 的候选 DoH URL，<br><code>fetchJsonChain()</code> 轮询请求直到某个成功返回。</p><p>若全部失败，则返回：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;error&quot;</span><span class="punctuation">:</span> <span class="string">&quot;upstream failed&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;detail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;...&quot;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><ol><li><code>/ip</code></li></ol><p>Edge 运行时调用 <code>https://ipapi.co/&#123;ip&#125;/json/</code> 获取基础地理信息，并加入本地 <strong>ASN 对照表</strong>：</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">ASN_MAP</span> = &#123;</span><br><span class="line">  <span class="number">13335</span>: <span class="string">&quot;Cloudflare&quot;</span>,</span><br><span class="line">  <span class="number">4134</span>: <span class="string">&quot;中国电信&quot;</span>,</span><br><span class="line">  <span class="number">9808</span>: <span class="string">&quot;中国移动&quot;</span>,</span><br><span class="line">  <span class="number">16509</span>: <span class="string">&quot;亚马逊云&quot;</span>,</span><br><span class="line">  <span class="number">15169</span>: <span class="string">&quot;谷歌云&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>返回结果形如：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;ip&quot;</span><span class="punctuation">:</span> <span class="string">&quot;8.8.8.8&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;as&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;number&quot;</span><span class="punctuation">:</span> <span class="number">15169</span><span class="punctuation">,</span> <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Google LLC&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;info&quot;</span><span class="punctuation">:</span> <span class="string">&quot;谷歌云&quot;</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;country&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;code&quot;</span><span class="punctuation">:</span> <span class="string">&quot;US&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;United States&quot;</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;regions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;California&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Mountain View&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;location&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;latitude&quot;</span><span class="punctuation">:</span> <span class="number">37.4</span><span class="punctuation">,</span> <span class="attr">&quot;longitude&quot;</span><span class="punctuation">:</span> <span class="number">-122.0</span> <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><ol><li><code>/host</code> 与 <code>/meta</code></li></ol><ul><li><code>/meta</code> 返回当前环境配置（例如 <code>DOH_PATH</code>）。</li><li><code>/host</code> 返回当前平台信息（Netlify&#x2F;Vercel 及区域标识）。</li></ul><h5 id="UI-特性"><a href="#UI-特性" class="headerlink" title="UI 特性"></a>UI 特性</h5><ul><li>玻璃拟态卡片 + 渐变背景；</li><li>查询结果同时以表格和 JSON 展示；</li><li>支持同源与跨源 DoH 测试；</li><li>自动检测后端 <code>/resolve</code> 连通性。</li></ul><h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><h4 id="Windows使用"><a href="#Windows使用" class="headerlink" title="Windows使用"></a>Windows使用</h4><p>这里仅作为一个简单的教程，适用于临时使用。<br>*注意，由于这个项目延迟由托管平台-&gt;设备的延迟决定，一般情况下延迟可能会很大，不建议作为默认的DNS服务器使用。</p><h5 id="Edge"><a href="#Edge" class="headerlink" title="Edge"></a>Edge</h5><p>在<a href="edge://settings/">edge:&#x2F;&#x2F;settings&#x2F;</a>中搜索“DNS”，打开使用安全的DNS，并在服务提供商的文本框中输入你部署的服务（必须携带https请求头，并且携带dns解析路径）</p><h5 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h5><p>选择 偏好设置-&gt;隐私和安全-&gt;安全，或者在地址栏输入<a href="chrome://settings/security">chrome:&#x2F;&#x2F;settings&#x2F;security</a>。在 高级 部分，完成 DoH 接入点配置。 打开 使用安全DNS。 在选择 DNS 提供商中选中 添加自定义DNS服务提供商。在下方编辑框中输入 DoH接入点。</p><h4 id="安卓"><a href="#安卓" class="headerlink" title="安卓"></a>安卓</h4><p>大多数系统仅支持输入主机名作为端点，但是，你在这些平台部署后只会返回URL，并不会有主机名，所以我个人推荐用<a href="https://getintra.org/">Intra</a>。<br>安装完成后前往设置页面，选择设置，在文本框中输入你的dnh地址即可。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 部署 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WRC类游戏该怎么买，怎么玩？</title>
       <link href="//post/5975.html"/>
       <url>//post/5975.html</url>
@@ -100,18 +119,18 @@
       
       <categories>
           
-          <category> Windows </category>
-          
           <category> 折腾笔记 </category>
+          
+          <category> Windows </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 折腾笔记 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -187,18 +206,18 @@
       
       <categories>
           
-          <category> Windows </category>
-          
           <category> 项目 </category>
+          
+          <category> Windows </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 项目 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -216,9 +235,9 @@
       
       <categories>
           
-          <category> 部署 </category>
-          
           <category> Huggingface </category>
+          
+          <category> 部署 </category>
           
       </categories>
       

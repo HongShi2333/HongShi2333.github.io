@@ -121,9 +121,9 @@
       
       <categories>
           
-          <category> 项目 </category>
-          
           <category> 部署 </category>
+          
+          <category> 项目 </category>
           
           <category> CloudFlare </category>
           
@@ -154,18 +154,18 @@
       
       <categories>
           
-          <category> Windows </category>
-          
           <category> 折腾笔记 </category>
+          
+          <category> Windows </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 折腾笔记 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -250,9 +250,9 @@
       
         <tags>
             
-            <tag> 项目 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -270,9 +270,9 @@
       
       <categories>
           
-          <category> Huggingface </category>
-          
           <category> 部署 </category>
+          
+          <category> Huggingface </category>
           
       </categories>
       

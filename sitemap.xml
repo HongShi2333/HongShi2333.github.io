@@ -426,13 +426,6 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/categories/%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2025-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://hongshi.qzz.io/categories/%E9%80%86%E5%90%91/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -440,7 +433,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/categories/%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://hongshi.qzz.io/categories/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -462,6 +455,13 @@
   
   <url>
     <loc>http://hongshi.qzz.io/categories/%E5%AE%89%E5%8D%93/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hongshi.qzz.io/categories/%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

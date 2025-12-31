@@ -354,13 +354,6 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/tags/%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2025-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://hongshi.qzz.io/tags/%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -389,7 +382,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/tags/object-Object/</loc>
+    <loc>http://hongshi.qzz.io/tags/CloudFlare/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -403,7 +396,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/tags/CloudFlare/</loc>
+    <loc>http://hongshi.qzz.io/tags/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -419,20 +412,6 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/categories/Windows/</loc>
-    <lastmod>2025-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hongshi.qzz.io/categories/%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2025-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://hongshi.qzz.io/categories/%E9%80%86%E5%90%91/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -440,7 +419,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/categories/%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>http://hongshi.qzz.io/categories/Windows/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -461,6 +440,13 @@
   </url>
   
   <url>
+    <loc>http://hongshi.qzz.io/categories/%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://hongshi.qzz.io/categories/Huggingface/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -468,7 +454,7 @@
   </url>
   
   <url>
-    <loc>http://hongshi.qzz.io/categories/CloudFlare/</loc>
+    <loc>http://hongshi.qzz.io/categories/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -476,6 +462,13 @@
   
   <url>
     <loc>http://hongshi.qzz.io/categories/Termux/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hongshi.qzz.io/categories/CloudFlare/</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

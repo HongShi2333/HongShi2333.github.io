@@ -30,8 +30,6 @@
             
             <tag> 安卓 </tag>
             
-            <tag> [object Object] </tag>
-            
         </tags>
       
     </entry>
@@ -121,9 +119,9 @@
       
       <categories>
           
-          <category> 项目 </category>
-          
           <category> 部署 </category>
+          
+          <category> 项目 </category>
           
           <category> CloudFlare </category>
           

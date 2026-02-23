@@ -119,9 +119,9 @@
       
       <categories>
           
-          <category> 项目 </category>
-          
           <category> 部署 </category>
+          
+          <category> 项目 </category>
           
           <category> CloudFlare </category>
           
@@ -268,18 +268,18 @@
       
       <categories>
           
-          <category> Huggingface </category>
-          
           <category> 部署 </category>
+          
+          <category> Huggingface </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Huggingface </tag>
-            
             <tag> 部署 </tag>
+            
+            <tag> Huggingface </tag>
             
         </tags>
       

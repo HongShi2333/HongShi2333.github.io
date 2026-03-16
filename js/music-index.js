@@ -2,7 +2,7 @@
     // --- Anzhiyu 自定义音乐播放器 ---
     // --- 主要配置 ---
     const anzhiyuPlayerConfig = {
-        apiBaseUrl: "https://api.injahow.cn/meting/",
+        apiBaseUrl: "https://api.qijieya.cn/meting/",
         defaultPlaylistId: "9182006753",
         defaultServer: "netease",
         defaultCoverArt: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",

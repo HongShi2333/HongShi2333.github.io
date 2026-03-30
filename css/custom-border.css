@@ -1,0 +1,36 @@
+/* 全局卡片强制边框 */
+.card-widget,
+.recent-post-item,
+#aside-content .card-widget,
+#recent-posts > .recent-post-item,
+.layout > div:first-child .card-widget {
+    outline: none !important;
+    border: 5px solid var(--anzhiyu-card-border, #d0d7e6) !important;
+    
+    /* 关键新增：内容与边框保持距离（至少3px，建议8px更美观） */
+    padding: 8px !important;
+    
+    box-shadow: 
+        0 0 0 1px rgba(0, 0, 0, 0.03),
+        0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease;
+}
+
+/* 鼠标悬停效果（可选） */
+.card-widget:hover,
+.recent-post-item:hover {
+    border-color: var(--anzhiyu-main, #425aef) !important;
+    box-shadow: 
+        0 0 0 1px rgba(0, 0, 0, 0.05),
+        0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+/* 深色模式 */
+[data-theme="dark"] .card-widget,
+[data-theme="dark"] .recent-post-item {
+    border-color: #4a4a6a !important;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}

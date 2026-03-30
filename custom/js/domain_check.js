@@ -6,7 +6,8 @@ const CONFIG = {
   
   // 合法域名白名单（支持通配符）
   ALLOW_DOMAINS: [
-    'www.adai.fun',
+    'hongshi.qzz.io',
+    'hongshi.cc.cd',
     'localhost'      // 本地开发环境
   ],
   

@@ -5,7 +5,7 @@
 #recent-posts > .recent-post-item,
 .layout > div:first-child .card-widget {
     outline: none !important;
-    border: 5px solid var(--anzhiyu-card-border, #d0d7e6) !important;
+    border: 2px solid var(--anzhiyu-card-border, #d0d7e6) !important;
     
     /* 关键新增：内容与边框保持距离（至少3px，建议8px更美观） */
     padding: 8px !important;
